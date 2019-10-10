@@ -1,12 +1,12 @@
 #kartta {
-  height: 180px;
+  height: 500px;
   border: solid;
 }
 
 .otsikko {
   position: relative;
   text-align: center;
-  color: white;
+  color: black;
 }
 
 .otsikon_teksti {
