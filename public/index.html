@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Bootstrap-linkit -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 <title>Torstain 2019 karttaprojekti</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -8,7 +14,7 @@
 
 <link rel="stylesheet" href="css/sijainti_ja_kartta.css"/>
 
-<!-- Make sure you put this AFTER Leaflet's CSS -->
+
 <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
       integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
       crossorigin=""></script>
@@ -21,7 +27,7 @@
 <body>
 
 <div class="otsikko">
-    <img src="media/kuvat/maailma2.jpg" alt="tässä pitäisi olla taustakuva" width=100%>
+      <img src="media/kuvat/maailma2.jpg" alt="tässä pitäisi olla taustakuva" width=100%>
     <div class="otsikon_teksti">
         <h1>Seikkaillaan kartalla</h1>
         <p>Kodareiden Mini Full Stack -kurssilla.</p>
@@ -35,6 +41,22 @@
 <p id="leveysasteet"></p>
 
 <div id="kartta"></div>
+
+<button type="button" class="btn btn-secondary oma_nappi">Tallenna Sijainti</button>
+
+<form>
+  <div class="form-group">
+    <label for="paikka">Paikka Jossa Kävin:</label>
+    <input type="paikka" class="form-control" id="paikka">
+  </div>
+  <div class="form-group">
+    <label for="arvostelu">Arvostelu:</label>
+    <input type="arvostelu" class="form-control" id="arvostelu">
+  </div>
+  <button type="button" class="btn btn-secondary oma_nappi">Arvostele!</button>
+  <button type="button" class="btn btn-secondary oma_nappi_peruuta">Peruuta</button>
+</form>
+
 
 </body>
 </html>
