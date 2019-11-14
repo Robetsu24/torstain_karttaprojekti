@@ -8,6 +8,10 @@ body{
   border: solid;
 }
 
+#paikkatietolomake{
+  display: none;
+}
+
 .otsikko {
   position: relative;
   text-align: center;
@@ -29,4 +33,17 @@ body{
 
 .oma_nappi_peruuta{
   background-color: red;
+}
+
+.form-group{
+  position: relative;
+  left: 10px;
+}
+
+.sijaintitietotekstit {
+  color: white;
+  background-color: #696969;
+  border: 5px solid #00ffaa;
+  padding: 5px;
+  margin: 10px;
 }

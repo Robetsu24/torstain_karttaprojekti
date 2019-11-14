@@ -26,36 +26,71 @@
 
 <body>
 
-<div class="otsikko">
+<!--<div class="otsikko">
       <img src="media/kuvat/maailma2.jpg" alt="tässä pitäisi olla taustakuva" width=100%>
     <div class="otsikon_teksti">
         <h1>Seikkaillaan kartalla</h1>
         <p>Kodareiden Mini Full Stack -kurssilla.</p>
     </div>
+</div> -->
+<div class="sijaintitietotekstit">
+  <div class="row">
+    <div class="col-sm-6">
+    <p>Pituusasteet</p>
+    <p id="pituusasteet"></p>
+  </div>
+
+  <div class="col-sm-6">
+      <p>Leveysasteet</p>
+      <p id="leveysasteet"></p>
+  </div>
+</div>
 </div>
 
-<p>Pituusasteet</p>
-<p id="pituusasteet"></p>
-
-<p>Leveysasteet</p>
-<p id="leveysasteet"></p>
-
-<div id="kartta"></div>
-
-<button type="button" class="btn btn-secondary oma_nappi">Tallenna Sijainti</button>
-
-<form>
-  <div class="form-group">
-    <label for="paikka">Paikka Jossa Kävin:</label>
-    <input type="paikka" class="form-control" id="paikka">
+<div class="row">
+  <div class="col-sm-7">
+    <div id="kartta"></div>
+    <button onclick="avaa_paikkatietolomake();" type="button" class="btn btn-secondary oma_nappi">Tallenna Sijainti</button>
+    <div class="popup" id="paikkatietolomake">
+      <form id="lomake">
+        <div class="form-group">
+          <label for="paikka">Paikka Jossa Kävin:</label>
+          <input type="paikka" class="form-control" id="paikka">
+        </div>
+        <div class="form-group">
+          <label for="arvostelu">Arvostelu:</label>
+          <input type="arvostelu" class="form-control" id="arvostelu">
+        </div>
+        <button onclick="laheta_arvostelu();" type="button" class="btn btn-secondary oma_nappi">Arvostele!</button>
+        <button onclick="peruutus();" type="button" class="btn btn-secondary oma_nappi_peruuta">Peruuta</button>
+      </form>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="arvostelu">Arvostelu:</label>
-    <input type="arvostelu" class="form-control" id="arvostelu">
+
+  <div class="col-sm-4">
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th>Paikka</th>
+          <th>Arvostelu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Helsinki</td>
+          <td>Kivaa oli</td>
+        </tr>
+        <tr>
+          <td>Levi</td>
+          <td>Hyvät laskusäät</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <button type="button" class="btn btn-secondary oma_nappi">Arvostele!</button>
-  <button type="button" class="btn btn-secondary oma_nappi_peruuta">Peruuta</button>
-</form>
+</div>
+
+
+
 
 
 </body>
