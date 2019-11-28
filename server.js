@@ -13,14 +13,14 @@ const paikat = [
   {
     "paikka": "Helsinki",
     "arvostelu": "Kivaa oli",
-    "longtitude": "24.9384",
+    "longitude": "24.9384",
     "latitude": "60.1699"
 
   },
   {
     "paikka": "Levi",
     "arvostelu": "Hyvät laskusäät",
-    "longtitude": "24.8082",
+    "longitude": "24.8082",
     "latitude": "67.8040"
   }
 ]
@@ -32,5 +32,7 @@ app.get('/api/paikat', function (request, response) {
 app.post('/api/paikkatieto', function (request, response) {
   console.log("Kayttajan arvostelu")
   console.log(request.body);
+  paikat.push(paikat);
+  console.log(paikat);
   response.send(200);
 })
