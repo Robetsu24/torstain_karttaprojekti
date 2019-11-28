@@ -32,7 +32,7 @@ app.get('/api/paikat', function (request, response) {
 app.post('/api/paikkatieto', function (request, response) {
   console.log("Kayttajan arvostelu")
   console.log(request.body);
-  paikat.push(paikat);
+  paikat.push(request.body);
   console.log(paikat);
   response.send(200);
 })

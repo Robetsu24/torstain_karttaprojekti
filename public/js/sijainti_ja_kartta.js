@@ -7,7 +7,7 @@ var kartta;
 async function getData(){
   const response = await fetch('api/paikat');
   const data = await response.json();
-  console.log(data[0].paikka);
+  console.log(data);
   tayta_paikkataulukko(data);
   merkitsePaikat(data);
 }
@@ -21,10 +21,17 @@ function merkitsePaikat(data){
 }
 
 
+function tyhjenna_paikkataulukko() {
+  var table = document.getElementById("paikkataulukko");
+  var rivien_maara = table.rows.length -1;
+  for (var i = 0; i < rivien_maara; i++) {
+    table.deleteRow(1);
+  }
+}
+
 function tayta_paikkataulukko(data){
   var table = document.getElementById("paikkataulukko");
-  var table_body = document.getElementById("paikkataulukkobody")
-  tablebody.innerHTML "";
+
   for (var i = 0; i < data.length; i++) {
     var row = table.insertRow(i + 1);
     var cell1 = row.insertCell(0);
@@ -32,6 +39,8 @@ function tayta_paikkataulukko(data){
     cell1.innerHTML = data[i].paikka;
     cell2.innerHTML = data[i].arvostelu;
   }
+
+  console.log(table);
 }
 
 
@@ -55,7 +64,7 @@ if("geolocation" in navigator) {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(kartta);
 
-      var marker = L.marker([latitude, longitude]).addTo(kartta);
+      olet_tassa = L.marker([latitude, longitude]).addTo(kartta);
 
       getData();
   });
@@ -69,7 +78,7 @@ function avaa_paikkatietolomake() {
   document.getElementById("lomake").reset();
 }
 
-function peruutus() {
+function sulje_paikkatietolomake() {
   document.getElementById("paikkatietolomake").style.display = "none";
 }
 
@@ -91,17 +100,11 @@ function laheta_arvostelu() {
 fetch('/api/paikkatieto', options).then(function(response) {
   console.log(response)
   if (response.status == 200){
+    tyhjenna_paikkataulukko();
     getData();
-/*
-    document.getElementById("paikkatietolomake").style.display = "none";
+    sulje_paikkatietolomake();
     olet_tassa.bindPopup("<b>" + paikka + "</b><br>" + arvostelu).openPopup();
 
-    var table = document.getElementById("paikkataulukko");
-    var row = table.insertRow(1);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = paikka;
-    cell2.innerHTML = arvostelu;
   }
 }, function(error){
   console.log(error.message);
